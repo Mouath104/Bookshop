@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+<div class="edit-container">
+    <h1>Update</h1>
+
+<form action="updaterow/{{ mybook.id }}" method="post">
+{% csrf_token %}
+
+<h4>Title:</h4>
+<input name="title" value="{{ mybook.title }}">
+<br>
+
+<h4>Author:</h4>
+<input name="author" value="{{ mybook.author }}">
+<br>
+
+<h4>Desc:</h4>
+<input name="Desc" value="{{ mybook.Desc }}">
+<br>
+
+<h4>Img:</h4>
+<input name="img" value="{{ mybook.img }}">
+<br>
+
+<h4>Price:</h4>
+<input name="price" value="{{ mybook.price }}">
+<br>
+
+
+<input type="submit" value="Submit">
+
+</form>
+</div>
+
+
+{% endblock %}

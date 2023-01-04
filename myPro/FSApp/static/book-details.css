@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    font-family: Courier;
+  }
+:root{
+    --Dashbord:#ffeb3b;
+    --cover:#eeeeee;
+    --hilight:#f6f6f6;
+    --tail:#e6e9ed;
+    --main-bg:#fafafa;
+    --secCol:cornflowerblue;
+    --book1:#ff4f19;
+    --book2:#1993b8;
+    --book3:#00c37a;
+    --Add2Cart:linear-gradient(to right,#026b44,#00c37a);
+}
+
+.body-book-details{
+    /* display: flex;
+    flex-direction: column;
+     align-content: center; 
+    justify-content: center;
+    align-items: center; */
+}
+
+body{
+    background-color: var(--main-bg);
+}
+.alll{
+    margin-left: 20px;
+}
+.bookDetails-container{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.bookDetails-left{
+
+}
+.bookDetails-left h1{
+    margin: 0;
+    display: inline;
+    margin-left: 10px;
+}
+.bookDetails-left #Desc{
+    display: inline-flex;
+    align-items: baseline;
+}
+
+.bookDetails-left div{
+    margin-bottom: 20px;
+}
+.bookDetails-right img{
+    height: 400px;
+    width: 250px;
+}
+
+.bookDetails-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.bookDetails-head h1{
+    margin: 0;
+}
+
+
+.le a{
+    text-decoration: none;
+    user-select: none;
+    background-color: green;
+    color: white;
+    border-radius: 6px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+
+
+/*
+adding the INCART and ADD2CART
+*/
+.bookDetails-right{
+position: relative;
+}
+.bookDetails-right .add2cart{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: var(--Add2Cart);
+    border-radius: 4px;
+    color: white;
+    padding: 2px;
+}

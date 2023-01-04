@@ -1,0 +1,21 @@
+<div class="nav-container">
+    <div class="title"><a href="http://127.0.0.1:8000/FSApp/"><img src="images/logo.png" alt="" class="logo"></a></div>
+    <div class="lists">
+        {% if user.is_authenticated %}
+            {% if authorized %} 
+                <div><a class="navbar-link" href="http://127.0.0.1:8000/admin/">Admin</a></div>
+            {% endif %}
+        {% endif %}
+        {% if user.is_authenticated %}
+            <div><a class="navbar-link" href="#">Hello, {{user.username}}</a></div>
+            {% if not authorized %} 
+            <div><a class="navbar-link" href="http://127.0.0.1:8000/FSApp/cart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></div>
+            {% endif %}
+            <div><a class="navbar-link" href="http://127.0.0.1:8000/FSApp/user_logout/">Logout <i class="fa-solid fa-right-from-bracket"></i></a></div>
+        {% else %}
+            <div><a class="navbar-link" href="http://127.0.0.1:8000/FSApp/user_login/">Login <i class="fa-solid fa-right-to-bracket"></i></a></div>
+            <div><a class="navbar-link" href="http://127.0.0.1:8000/FSApp/registerGet/">Register</a></div>
+        {% endif %}
+    </div>
+
+</div>

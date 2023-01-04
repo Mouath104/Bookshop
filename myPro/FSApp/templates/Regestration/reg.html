@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+        <h1>Register Here</h1>
+        <h3>Just fill out the form.</h3>
+
+        <form action="/FSApp/registerPost/" enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+          <input type="submit" name="" value="Register">
+        </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}

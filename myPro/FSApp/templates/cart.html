@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+<div class="mytable">
+    <table class="styled-table">
+        <th>
+            Image
+        </th>
+        <th>
+            Book Title
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Total Price
+        </th>
+        <th>Del</th>
+        {% for a in cbooks %}
+            {% for b in booksincart %}
+                {% if a.id == b.book_id %}
+                    <tr>
+                        <td>
+                            {% load static %}
+                            <img src="{% static a.img %}" alt="" width="100px" height="160px">
+                        </td>
+                        <td>
+                            {{a.title}}
+                        </td>
+                        <td>
+                            <b>{{b.quantity}}</b>
+                        </td>
+                        <td>
+                            <span>{{a.price}}$</span>
+                        </td>
+                        <td>
+                            <span>{% widthratio a.price 1 b.quantity %}$</span>
+                        </td>
+                        <td>.
+                            <span id="del"><a href="http://127.0.0.1:8000/FSApp/deleteItem/{{b.id}}"><i class="fa fa-trash" aria-hidden="true"></i></a></span>
+                        </td>
+                    </tr>
+
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+                    <tr>
+                        <td>.
+                            <h3 style="display: inline;">Total</h3>:
+                        </td>
+                        <td>
+                            -
+                        </td>
+                        <td>
+                            -
+                        </td>
+                        <td>
+                            -
+                        </td>
+                        <td style="background-color: var(--book3);">
+                            <span style="color: white;font-size: 1.2em;">{{total}}$</span>
+                        </td>
+                        <td>
+                            -
+                        </td>
+                    </tr>
+    </table>
+    
+</div>
+
+
+{% endblock %}

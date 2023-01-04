@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+{% if authorized %} 
+<div class="head"><a href="add/"><i class="fa fa-plus-square" aria-hidden="true"></i> Add a record</a></div>
+{% endif %}
+<div class="container-mine">
+    {% for x in books %}
+    <div class="card" id="{{x.id}}">
+        <div class="card-img">
+            {% load static %}
+            <img src="{% static x.img %}">
+        </div>
+        <div class="backCard deactive">
+            <p>{{x.Desc}}</p>
+            <a href="http://127.0.0.1:8000/FSApp/book_details/{{x.id}}"><button class="view-details">View Details</button></a>
+        </div>
+        <!--hint: this url works if u put the right URL, u should do it in the views-->
+        {% if user.is_authenticated %} <!--the user must be authenticated and a regular user--> 
+            {% if not authorized %} 
+                <div class="pur"><a href="CartBooksPost/{{x.id}}"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to Cart</a></div>
+            {% endif %}
+        {% endif %}
+        <div class="card-head">
+            <span>{{x.title}}</span>
+        </div>
+
+        <div class="card-tail">
+            <span>Price:<span class="Cur">{{x.price}}$</span></span>
+            <span>{{x.author}}</span>
+        </div>
+            <!-- <span>{{x.Desc}}</span> -->
+        {% if authorized %}
+        <div class="tail">
+            <!-- messages.success(request, 'Profile details updated.') -->
+            {% if messages == "True" %}
+                <script src="card.js">Done()</script> 
+            {% else %}
+                <span><a href="delete/{{x.id}}" value="{{ack}}">Del</a></span>
+            {% endif %}
+            <span><a href="update/{{x.id}}">Edit</a></span>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+          <!------------------------------------------------------------------------>
+          <!--Tail of the Paginator-->
+           {% if books.has_other_pages %}
+              <ul class="pagination">
+            {% if books.has_previous %}
+              <li><a href="?page={{ books.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+              <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in books.paginator.page_range %}
+              {% if books.number == i %}
+                 <li class="active"><span>{{ i }}</li>
+            {% else %}
+              <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if books.has_next %}
+            <li><a href="?page={{ books.next_page_number }}">&raquo;</a></li>
+               {% else %}
+               <li class="disabled"><span>&raquo;</span></li>
+              {% endif %}
+           </ul>
+           {% endif %}
+           <!------------------------------------------------------------------------------------------------------------------>
+          
+
+{% endblock %}

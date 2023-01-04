@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+  <div class="alll">
+    <!-- <div class="bookDetails-head"> -->
+        <!-- <div class="le"><a class="navbar-brand" href="http://127.0.0.1:8000/FSApp/">Back</a></div> -->
+        <!-- <div class="ra"><h1>Book Details</h1></div> -->
+    <!-- </div> -->
+
+
+    <div class="bookDetails-container">
+    {% csrf_token %} 
+    
+        <div class="bookDetails-left">
+            <div><h1>Title: </h1><span>{{book_details.title}}</span></div>
+            <div><h1>author: </h1><span>{{book_details.author}}</span></div>
+            <div><h1>price: </h1><span>{{book_details.price}}</span></div>
+            <div id="Desc"><h1>Desc: </h1><span>{{book_details.Desc}}</span></div>
+        </div>
+    
+        <div class="bookDetails-right">
+          <h1>Book Details</h1>
+          {% if bookincart %}
+          <span class="incart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> In Cart</span>      
+          {% else %}
+          <a href="http://127.0.0.1:8000/FSApp/CartBooksPost_ToBD/{{book_details.id}}"><span class="add2cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add</span></a>
+          {% endif %}
+            {% load static %}
+            <div><img src="{% static book_details.img %}" alt=""></div>
+        </div>
+    
+    </div>   
+  </div>
+
+  
+{% endblock %}

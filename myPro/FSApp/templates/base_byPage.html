@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bookshop</title>
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FS</title>
+    {% load static %}
+
+    <!--New Line-->
+    <link rel="stylesheet" href="{% static 'mynav.css' %}">
+
+    <link rel="stylesheet" href="{% static 'FSApp_byPage.css' %}">
+    <link rel="stylesheet" href="{% static 'table.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'site-icon-3.jpg' %}">
+    <link type="text/css" href="@@path/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/Login.css' %}">
+</head>
+
+<body>
+    {% for message in messages %}
+    {% if message.tags == 'success' %}
+      <!-- sweetalert js -->
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script>
+        var m = "{{ message }}";
+        Swal.fire({
+          icon: 'success',
+          iconHtml: '<i class="fa fa-check"></i>',
+          text: m,
+          confirmButtonColor: 'green',
+          color: '#fff',
+          background: 'rgba(0, 0, 0, 0.7)',
+          allowEscapeKey: false,
+          showClass: {
+            popup: 'my-icon'                     // disable popup animation css
+          },
+        });
+      </script>
+    {% else %}
+    <!-- sweetalert js -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      var m = "{{ message }}";
+      Swal.fire({
+        icon: 'error',
+        iconHtml: '<i class="fa fa-warning"></i>',
+        text: m,
+        confirmButtonColor: 'red',
+        color: '#fff',
+        background: 'rgba(0, 0, 0, 0.7)',
+        allowEscapeKey: false,
+        showClass: {
+          popup: 'my-icon'                     // disable popup animation css
+        },
+      });
+    </script>
+    {% endif %}
+  {% endfor %}
+
+    <div class="all">
+      <div class="nav-container">
+        <div class="navbar">
+          <a href="http://127.0.0.1:8000/FSApp/"><img src="{% static '167756.png' %}" alt="" class="logo"> <li class="li-title">Bookshop</li></a>
+          <nav>
+              <ul id="menuList">
+                {% if user.is_authenticated %}
+                {% if authorized %} 
+                  <li><a class="navbar-link" href="http://127.0.0.1:8000/admin/">Admin</a></li>
+                {% endif %}
+                {% endif %}
+                {% if user.is_authenticated %}
+                  <li><a class="navbar-link" href="#">Hello, {{user.username}}</a></li>
+                {% if not authorized %} 
+                  <li><a class="navbar-link" href="http://127.0.0.1:8000/FSApp/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>
+                {% endif %}
+                  <li><a class="navbar-link" href="http://127.0.0.1:8000/FSApp/user_logout/">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                {% else %}
+                <li><a class="navbar-link" href="http://127.0.0.1:8000/FSApp/user_login/">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                <li></li>
+                {% endif %}
+              </ul>
+          </nav>
+          <img src="{% static 'images/menu.png' %}" alt="" class="menu-icon" onclick="togglemenu()">
+      </div>
+      </div>
+
+
+
+        {% block body_block %}
+        {% endblock %}
+    <footer>
+        <div class="footer">
+        <div class="row">
+        <a href="https://www.facebook.com/moath.mubaslat/" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/mouath-almobaslat-89a41a233/" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/Mouath104/myPro" target="_blank"><i class="fa fa-github"></i></a>
+        </div>
+
+        <div class="row">
+        Dwitter Copyright © 2022 Dwitter - All rights reserved
+        </div>
+        <div class="row">
+            Made with ♥ by Mouath
+            </div>
+        </div>
+        </footer>
+  </div>
+  <script src="https://kit.fontawesome.com/5f1eca05cb.js" crossorigin="anonymous"></script>
+
+  {% load static %}
+  <script src="{% static 'card.js' %}"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="sweetalert2.all.min.js"></script>
+  <script src="@@path/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+.mytable{
+    width: 70%;
+    overflow-x: auto;
+    /* margin-bottom: 3.7%; */
+    border: 3px solid #00c37a;
+    padding: 5px;
+    margin-top: .2%;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    text-align:center;
+    width: 100%;
+    height: 35px;
+    user-select: none;
+    overflow-x: scroll;
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+}
+
+.styled-table th{
+    background-color: #009879;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+.styled-table tbody tr:nth-of-type(odd) {
+    background-color: #e6e9ed;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+#del{
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.mytable::-webkit-scrollbar {
+    width: 10px;
+  }
+  .mytable::-webkit-scrollbar-track {
+    background-color: #009879;
+}
+.mytable::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgb(255 255 255);
+}
+
+td span {
+    color: var(--book3);
+    font-weight: 900;
+}
+@media only screen and (max-width:700px){
+
+    .mytable{
+        width: 90%;
+    }
+    
+}

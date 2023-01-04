@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+  <div class="alll">
+    <div class="bookDetails-head">
+        <!-- <div class="le"><a class="navbar-brand" href="http://127.0.0.1:8000/FSApp/">Back</a></div> -->
+        <div class="ra"><h1>Adding New Book</h1></div>
+    </div>
+
+
+    <div class="bookDetails-container">
+    {% csrf_token %} 
+    
+        <div class="bookDetails-left">
+            
+    <form action="addP/" method="post">
+        {% csrf_token %}
+    <div class="in-form">
+        <div>
+            <div><h1>Title: </h1><input type="text" name="title"></div>
+                    
+        </div>
+        <div>
+            <div><h1>author:</h1><input type="text" name="Desc"></div>
+                   
+        </div>
+        <div>
+            <div><h1>price:  </h1><input type="text" name="price"></div>
+                
+        </div>
+        <div>
+            <div id="desc"><h1>Desc:   </h1><input type="text" name="author"></div>
+        </div>
+        <div>
+            <div><h1>Image:  </h1><input type="text" name="img"></div>     
+        </div>
+        <div class="add-btn">
+            <input type="submit" value="Add">
+        </div>
+    </div>
+
+    </form>
+        
+        </div>
+    
+        <div class="bookDetails-right">
+            {% load static %}
+            <div><img src="{% static '9.jpg' %}" alt=""></div>
+        </div>
+    
+    </div>   
+  </div>
+
+  {% endblock %}
