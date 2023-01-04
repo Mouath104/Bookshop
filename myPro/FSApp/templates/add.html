@@ -4,16 +4,16 @@
 {% block body_block %}
 
   <div class="alll">
-    <div class="bookDetails-head">
+    <!-- <div class="bookDetails-head"> -->
         <!-- <div class="le"><a class="navbar-brand" href="http://127.0.0.1:8000/FSApp/">Back</a></div> -->
-        <div class="ra"><h1>Adding New Book</h1></div>
-    </div>
+        <!-- <div class="ra"><h1>Adding New Book</h1></div> -->
+    <!-- </div> -->
 
 
     <div class="bookDetails-container">
     {% csrf_token %} 
     
-        <div class="bookDetails-left">
+    <div class="bookDetails-left">
             
     <form action="addP/" method="post">
         {% csrf_token %}
@@ -46,6 +46,7 @@
         </div>
     
         <div class="bookDetails-right">
+            <h1>Adding New Book</h1>
             {% load static %}
             <div><img src="{% static '9.jpg' %}" alt=""></div>
         </div>

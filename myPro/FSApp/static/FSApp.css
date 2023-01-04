@@ -226,7 +226,10 @@ a{
     cursor: pointer;
 }
 /* .card-img a img */
-
+.in-form input[type="text"] {
+    width: 100%;
+    /* display: inline; */
+}
 .in-form h1{
     width: fit-content;
 }
