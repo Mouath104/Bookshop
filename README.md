@@ -6,5 +6,9 @@ Bookshop is a web application that allows users to buy books from a list of avai
 # Technologies Used
 * Django Framework: Used as the backend for the application.
 * HTML, CSS, Bootstrap, and JS: Used for the frontend of the application.
+* 
 # Demo
 To see the Bookshop application in action, check out this [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:activity:7016147615813677056/).
+
+# Activate the Environment:
+myenv/scripts/activate
