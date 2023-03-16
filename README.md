@@ -1,15 +1,10 @@
-# Bookshop-v2.3
-It's a responsive web app that offers a list of Books to Buy.
+# Bookshop
+Bookshop is a web application that allows users to buy books from a list of available options. The application has two types of users: Customer and Power User.
 
-There is two possible way of users: 
-either a **Custoemr** user, or a **Power** user.
-
-A **Customer** user can buy the offered books, while the **Power** user is the user that Manages the site, like Adding New Books, Editing or Deleting them.
-
-I used Django Framework as Backend, And used HTML,CSS, Bootstrap and JS as the Frontend side. 
-
-Note: to see the App Functioing, in link below,
-https://www.linkedin.com/feed/update/urn:li:activity:7016147615813677056/
-
-thats it,
-BR
+* Customer: This type of user can browse the list of books and purchase the ones they want.
+* Power User: This type of user has access to the backend of the site and can add, edit, or delete books.
+# Technologies Used
+* Django Framework: Used as the backend for the application.
+* HTML, CSS, Bootstrap, and JS: Used for the frontend of the application.
+# Demo
+To see the Bookshop application in action, check out this [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:activity:7016147615813677056/).
